@@ -5,7 +5,7 @@ CXXFLAGS += -I./src
 
 LDFLAGS += -Wl,--as-needed
 LIBS += -lpthread
-LIBS += -L/usr/lib -lgtest_main -lgtest 
+LIBS += -lgtest_main -lgtest 
 
 SRCS += src/sample1.cpp \
 		tst/sample1_gtest.cpp

@@ -5,7 +5,7 @@ CXXFLAGS += -I./src
 
 LDFLAGS += -Wl,--as-needed
 LIBS += -lpthread
-LIBS += -L/usr/lib -lcunit
+LIBS += -lcunit
 
 SRCS += src/sample1.cpp \
 		tst/sample1_cunit.cpp
