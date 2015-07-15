@@ -8,10 +8,10 @@ LIBS += -lpthread
 LIBS += -L/usr/lib -lgtest_main -lgtest 
 
 SRCS += src/sample1.cpp \
-		tst/sample1_unittest.cpp
+		tst/sample1_gtest.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-TST = sample1_unittest
+TST = sample1_gtest
 
 .SUFFIXES: .cpp
 .PHONY: all $(TST)
