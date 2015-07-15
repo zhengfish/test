@@ -20,6 +20,7 @@ all: $(TST)
 
 $(TST): $(OBJS)
 	@echo link: $?
+	@echo       $@
 	@$(CXX) $(LDFLAGS) -o $@ $? $(LIBS) 
 
 .cpp.o:
