@@ -1,5 +1,10 @@
 # Makefile
 
+E_RED = \e[1;31m
+E_GREEN = \e[1;32m
+E_YELLOW = \e[1;33m
+E_END = \e[0m
+
 CXXFLAGS += -Wall -g
 CXXFLAGS += -I./src
 
@@ -14,17 +19,17 @@ OBJS = $(SRCS:.cpp=.o)
 TST = sample1_cunit
 
 .SUFFIXES: .cpp
-.PHONY: all $(TST)
+.PHONY: all
 
 all: $(TST)
 
 $(TST): $(OBJS)
-	@echo link: $?
-	@echo       $@
-	@$(CXX) $(LDFLAGS) -o $@ $? $(LIBS) 
+	@echo -e "link: $(E_YELLOW)$?$(E_END)"
+	@echo -e "      $(E_YELLOW)$@$(E_END)"
+	@$(CXX) $(LDFLAGS) -o $@ $? $(LIBS)
 
 .cpp.o:
-	@echo compling : $?
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
