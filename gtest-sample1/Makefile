@@ -29,7 +29,7 @@ $(TST): $(OBJS)
 	@echo -e "      $(E_YELLOW)$@$(E_END)"
 	@$(CXX) $(LDFLAGS) -o $@ $? $(LIBS)
 
-.cpp.o:
+%.o: %.cpp
 	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
