@@ -7,10 +7,11 @@ E_END = \e[0m
 
 CXXFLAGS += -Wall -g
 CXXFLAGS += -I./src
+CXXFLAGS += -I$(DIR_GTEST)/include
 
 LDFLAGS += -Wl,--as-needed
 LIBS += -lpthread
-LIBS += -lgtest_main -lgtest
+LIBS += -L$(DIR_GTEST)/lib/.libs -lgtest_main -lgtest
 
 SRCS += src/sample1.cpp \
 		tst/sample1_gtest.cpp
