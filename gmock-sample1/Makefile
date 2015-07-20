@@ -25,9 +25,17 @@ TST = sample1_gmock
 .SUFFIXES: .cpp
 .PHONY: all
 
-.cpp.o:
+%.o: %.c
 	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+%.o: %.cpp
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
+	@$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) $< -o $@
+
+%.o: %.cc
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
+	@$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) $< -o $@
 
 all: $(TST)
 

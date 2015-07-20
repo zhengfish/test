@@ -36,14 +36,22 @@ APP_4 = gmock-output-test
 .SUFFIXES: .cc
 .PHONY: all
 
+%.o: %.c
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
+	@$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+
+%.o: %.cpp
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
+	@$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) $< -o $@
+
+%.o: %.cc
+	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
+	@$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) $< -o $@
+
 all: $(APP_1) \
 	$(APP_2) \
 	$(APP_3) \
 	$(APP_4)
-
-%.o: %.cc
-	@echo -e "compiling : $(E_GREEN)$?$(E_END)"
-	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(APP_1): $(OBJS_1)
 	@echo -e "link: $(E_YELLOW)$?$(E_END)"
